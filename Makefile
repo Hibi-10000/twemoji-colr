@@ -34,7 +34,7 @@ $(FINAL_TARGET) : $(RAW_FONT) $(OT_SOURCE)
 	        -e '  print;' \
 	        -e '}' $(RAW_FONT).names
 	$(TTX) -m $(RAW_FONT) -o $(RAW_FONT_TEMPORARY) $(RAW_FONT).names
-	$(PYTHON) fixDirection.py $(RAW_FONT_TEMPORARY)
+	fontforge -lang=py -script fixDirection.py $(RAW_FONT_TEMPORARY)
 	$(TTX) -m $(RAW_FONT_TEMPORARY) -o $(FINAL_TARGET) $(OT_SOURCE)
 
 $(RAW_FONT) : $(CODEPOINTS) $(GRUNTFILE)
