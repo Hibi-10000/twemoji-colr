@@ -6,6 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         node-version: [16, 18, 20, 22]
     steps:
@@ -17,8 +18,12 @@ jobs:
         cache: 'yarn'
     - name: Install dependencies
       run: |
+        echo "::group::apt install"
         sudo apt install fonttools fontforge python3-fontforge
+        echo "::endgroup::"
+        echo "::group::yarn install"
         yarn install
+        echo "::endgroup::"
     - run: make
     - name: Upload artifact
       uses: actions/upload-artifact@v4
