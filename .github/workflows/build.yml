@@ -13,8 +13,6 @@ jobs:
         node-version: '16'
     - name: Install dependencies
       run: |
-        sudo add-apt-repository ppa:fontforge/fontforge
-        sudo apt update
         sudo apt install fonttools fontforge python3-fontforge
         yarn install
     - run: make
