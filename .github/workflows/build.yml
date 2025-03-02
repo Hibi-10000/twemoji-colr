@@ -11,6 +11,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '16'
+        cache: 'yarn'
     - name: Install dependencies
       run: |
         sudo apt install fonttools fontforge python3-fontforge
