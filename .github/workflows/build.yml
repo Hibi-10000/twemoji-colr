@@ -32,5 +32,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: font
+        name: font-${{ matrix.node-version }}
         path: 'build/Twemoji Mozilla.ttf'
