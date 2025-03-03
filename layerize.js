@@ -82,7 +82,7 @@ var addToXML = function(xml, p) {
 
 var codepoints = [];
 
-function expandColor(c) {
+function expandColor(c, fo) {
     if (c == undefined) {
         return c;
     }
@@ -99,13 +99,28 @@ function expandColor(c) {
     } else if (c == 'navy') {
         c = '#000080';
     }
+    //if (c.length == 5 || c.length == 9) {
+    //    // c is a hex color with alpha that might be shorthand (4 instead of 8 digits)
+    //    if (c.substr(0, 1) == '#' && c.length == 5) {
+    //        c = '#' + c.substr(1, 1) + c.substr(1, 1)
+    //                + c.substr(2, 1) + c.substr(2, 1)
+    //                + c.substr(3, 1) + c.substr(3, 1)
+    //                + c.substr(4, 1) + c.substr(4, 1);
+    //    }
+    //    if (c) {
+    //        return c;
+    //    }
+    //}
+
     // c is a hex color that might be shorthand (3 instead of 6 digits)
     if (c.substr(0, 1) == '#' && c.length == 4) {
         c = '#' + c.substr(1, 1) + c.substr(1, 1)
                 + c.substr(2, 1) + c.substr(2, 1)
                 + c.substr(3, 1) + c.substr(3, 1);
     }
-    if (c) {
+    if (fo == '.5') {
+        return c + '80';
+    } else if (c) {
         return c + 'ff';
     }
 }
@@ -474,6 +489,7 @@ function processFile(fileName, data) {
                 }
 
                 var fill = e['$']['fill'];
+                var fill_opacity = e['$']['fill-opacity'];
                 var stroke = e['$']['stroke'];
                 var strokeWidth = e['$']['stroke-width'] || defaultStrokeWidth;
 
@@ -521,7 +537,7 @@ function processFile(fileName, data) {
                     }
                 }
 
-                fill = expandColor(fill);
+                fill = expandColor(fill, fill_opacity);
                 stroke = expandColor(stroke);
 
                 fill = fill || defaultFill;
