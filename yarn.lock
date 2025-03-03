@@ -389,10 +389,10 @@ emoji-regex@^8.0.0:
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
   integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
 
-emojibase-data@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/emojibase-data/-/emojibase-data-6.2.0.tgz#db6c75c36905284fa623f4aa5f468d2be6ed364a"
-  integrity sha512-SWKaXD2QeQs06IE7qfJftsI5924Dqzp+V9xaa5RzZIEWhmlrG6Jt2iKwfgOPHu+5S8MEtOI7GdpKsXj46chXOw==
+emojibase-data@^16.0.2:
+  version "16.0.2"
+  resolved "https://registry.yarnpkg.com/emojibase-data/-/emojibase-data-16.0.2.tgz#eb832dc795c610164b1510dc5851e2ef5c416fe3"
+  integrity sha512-vRM82rvhjB4z5jDvxYanK/CZVe1QCu9ihxockyNvitd/aFkTT6Y4eeBW49GoXv5JMCNFrzDarADWrv7tjLcefA==
 
 end-of-stream@^1.1.0, end-of-stream@^1.4.1:
   version "1.4.4"
@@ -664,12 +664,12 @@ global-prefix@^1.0.1:
     is-windows "^1.0.1"
     which "^1.2.14"
 
-graceful-fs@^4.1.2, graceful-fs@^4.2.4, graceful-fs@~3.0.2:
+graceful-fs@^4.1.2, graceful-fs@^4.2.11, graceful-fs@~3.0.2:
   version "4.2.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.11.tgz#4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
 
-grunt-cli@^1.2.0:
+grunt-cli@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/grunt-cli/-/grunt-cli-1.5.0.tgz#24fa92225946b2002c535c7583a003e15203876f"
   integrity sha512-rILKAFoU0dzlf22SUfDtq2R1fosChXXlJM5j7wI6uoW8gwmXDXzbUvirlKZSYCdXl3LXFbR+8xyS+WFo+b6vlA==
@@ -748,7 +748,7 @@ grunt-webfont@^1.7.2:
     underscore.string "~3.2.3"
     winston "~2.1.1"
 
-grunt@^1.0.2:
+grunt@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/grunt/-/grunt-1.6.1.tgz#0b4dd1524f26676dcf45d8f636b8d9061a8ede16"
   integrity sha512-/ABUy3gYWu5iBmrUSRBP97JLpQUm0GgVveDCp6t3yRNIoltIYw7rEj3g5y1o2PGPR2vfTRGa7WC/LZHLTXnEzA==
@@ -1951,18 +1951,18 @@ wrappy@1:
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==
 
-xml2js@^0.4.19:
-  version "0.4.23"
-  resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.4.23.tgz#a0c69516752421eb2ac758ee4d4ccf58843eac66"
-  integrity sha512-ySPiMjM0+pLDftHgXY4By0uswI3SPKLDw/i3UXbnO8M/p28zqexCUoPmQFrYD+/1BzhGJSs2i1ERWKJAtiLrug==
+xml2js@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.6.2.tgz#dd0b630083aa09c161e25a4d0901e2b2a929b499"
+  integrity sha512-T4rieHaC1EXcES0Kxxj4JWgaUQHDk+qwHcYOCFHfiwKz7tOVPLq7Hjq9dM1WCMhylqMEfP7hMcOIChvotiZegA==
   dependencies:
     sax ">=0.6.0"
     xmlbuilder "~11.0.0"
 
-xmlbuilder@^8.2.2:
-  version "8.2.2"
-  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-8.2.2.tgz#69248673410b4ba42e1a6136551d2922335aa773"
-  integrity sha512-eKRAFz04jghooy8muekqzo8uCSVNeyRedbuJrp0fovbLIi7wlsYtdUn3vBAAPq2Y3/0xMz2WMEUQ8yhVVO9Stw==
+xmlbuilder@^15.1.1:
+  version "15.1.1"
+  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-15.1.1.tgz#9dcdce49eea66d8d10b42cae94a79c3c8d0c2ec5"
+  integrity sha512-yMqGBqtXyeN1e3TGYvgNgDVZ3j84W4cwkOXQswghol6APgZWaff9lnbvN7MHYJOiXsvGPXtjTYJEiC9J2wv9Eg==
 
 xmlbuilder@~11.0.0:
   version "11.0.1"
