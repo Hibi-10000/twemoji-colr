@@ -13,15 +13,15 @@ if they try to use this font.
 
 ## Getting started
 
-This project makes use of [grunt-webfont](https://github.com/sapegin/grunt-webfont)
+This project makes use of [grunt-webfont](https://github.com/sapegin/grunt-webfont/)
 and an additional [node.js](https://nodejs.org/en/) script.
-Therefore, installation of Node.js (and the package manager [yarn](https://classic.yarnpkg.com/en/)) is a prerequisite.
+Therefore, installation of Node.js (and the package manager [pnpm](https://pnpm.io/)) is a prerequisite.
 Grunt will be installed as a package dependency — no need to install it globally.
 
-The necessary tools can be installed via yarn:
+The necessary tools can be installed via pnpm:
 
     # install dependencies from packages.json, including `grunt-webfont`.
-    yarn
+    pnpm i
 
 The build process also requires [fontforge](https://fontforge.github.io/)
 and the TTX script from the [font-tools](https://github.com/behdad/fonttools/) package to be installed, and assumes standard Perl and Python are available.
@@ -51,7 +51,7 @@ You can then compress this into a WOFF via `woff2_compress`
 This branch contains a fairly ugly attempt to support emitting an sbix font as an alternative
 to COLR/CPAL.  For this to work:
 
- * Grab the latest twemoji release from https://github.com/jdecked/twemoji/releases
+ * Grab the latest twemoji release from https://github.com/jdecked/twemoji/releases/
  * Expand it and symlink the `2/72x72` (or `assets/72x72` for twemoji 13) directory into this checkout
  * Create a new twe-svg.zip: `mv twe-svg.zip twe-svg.zip.old; zip -rj twe-svg.zip twemoji-13.0.0/assets/svg`
  * Check that `isSbix = true` in layerize.js

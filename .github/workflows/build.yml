@@ -9,19 +9,24 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: ^10
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: 22
-        cache: 'yarn'
+        cache: 'pnpm'
 
     - name: Install dependencies
       run: |
         echo "::group::apt install"
         sudo apt install fonttools fontforge python3-fontforge
         echo "::endgroup::"
-        echo "::group::yarn install"
-        yarn install
+        echo "::group::pnpm install"
+        pnpm install
         echo "::endgroup::"
 
     - run: make

@@ -1,4 +1,4 @@
-NPM        ?= yarn
+NPM        ?= pnpm
 NODE       ?= node
 PERL       ?= perl
 PYTHON     ?= python3
