@@ -14,7 +14,7 @@ SVGS         = twe-svg.zip
 OVERRIDE_DIR = overrides
 EXTRA_DIR    = extras
 
-GRUNTFILE  = Gruntfile.js
+GRUNTFILE  = Gruntfile.cjs
 LAYERIZE   = layerize.js
 
 CODEPOINTS = $(BUILD_DIR)/codepoints.js

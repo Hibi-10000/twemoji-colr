@@ -43,6 +43,7 @@
     },
     "ignoredOptionalDependencies": ["canvas"]
   },
+  "type": "module",
   "engines": {
     "node": "^22",
     "pnpm": "^10"

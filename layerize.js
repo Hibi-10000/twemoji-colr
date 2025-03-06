@@ -1,7 +1,8 @@
-var fs         = require('fs'),
-    unzip      = require('unzip'),
-    xmlbuilder = require('xmlbuilder'),
-    xml2js     = require('xml2js');
+import fs from 'fs';
+//import { createUnzip } from 'zlib';
+import unzip from 'unzip';
+import xmlbuilder from 'xmlbuilder';
+import xml2js from 'xml2js';
 
 var sourceZip    = process.argv[2];
 var overridesDir = process.argv[3];
@@ -14,7 +15,7 @@ var isSbix = false;
 if (fontName == undefined) {
     console.error("### Missing font name.");
     console.error("### Usage: node " + process.argv[1] + " source-SVGs.zip overrides-dir extras-dir build-dir font-name");
-    return;
+    process.exit(1);
 }
 
 // Extra ligature rules to support ZWJ sequences that already exist as individual characters
