@@ -16,7 +16,7 @@ module.exports = function(grunt) {
                     autoHint: false,
                     execMaxBuffer: 1024 * 1000,
                     version: packageJSON.version,
-                    codepointsFile: 'build/codepoints.js'
+                    codepointsFile: 'build/codepoints.json'
                 }
             },
 		},

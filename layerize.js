@@ -1051,7 +1051,8 @@ function generateTTX() {
     ttx.end();
 
     // Write out the codepoints file to control character code assignments by grunt-webfont
-    fs.writeFileSync(targetDir + "/codepoints.js", "{\n" + codepoints.join(",\n") + "\n}\n");
+    fs.writeFileSync(targetDir + "/codepoints.json", "{\n    " + codepoints.join(",\n    ") + "\n}");
+    fs.cpSync(targetDir + "/codepoints.json", targetDir + "/codepoints.bak.json");
 }
 
 // Delete and re-create target directory, to remove any pre-existing junk
