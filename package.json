@@ -3,18 +3,7 @@
   "description": "Twemoji font in COLR/CPAL layered format.",
   "version": "0.4.0",
   "license": "Apache-2.0",
-  "author": "Jonathan Kew <jfkthame@gmail.com>",
-  "contributors": [
-    "Tim Guan-tin Chien <timdream@gmail.com>",
-    "Essem <smswessem@gmail.com>"
-  ],
-  "bugs": {
-    "url": "https://github.com/mozilla/twemoji-colr/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mozilla/twemoji-colr.git"
-  },
+  "private": true,
   "dependencies": {
     "grunt": "^1.6.1",
     "grunt-cli": "^1.5.0",
@@ -23,13 +12,6 @@
     "xml2js": "^0.6.2",
     "xmlbuilder": "^15.1.1"
   },
-  "keywords": [
-    "emoji",
-    "colr",
-    "twemoji",
-    "unicode"
-  ],
-  "homepage": "https://github.com/mozilla/twemoji-colr#readme",
   "devDependencies": {
     "emojibase-data": "^16.0.2",
     "resemblejs": "^5.0.0"
@@ -41,7 +23,9 @@
     "overrides": {
       "graceful-fs": "^4.2.11"
     },
-    "ignoredOptionalDependencies": ["canvas"]
+    "ignoredOptionalDependencies": [
+      "canvas"
+    ]
   },
   "type": "module",
   "engines": {
