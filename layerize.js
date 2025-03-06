@@ -1,4 +1,5 @@
-import fs from 'fs';
+//@ts-check
+import fs from 'node:fs';
 //import { createUnzip } from 'zlib';
 import unzip from 'unzip';
 import xmlbuilder from 'xmlbuilder';
@@ -19,7 +20,7 @@ if (fontName == undefined) {
 }
 
 // Extra ligature rules to support ZWJ sequences that already exist as individual characters
-var extraLigatures = JSON.parse(fs.readFileSync(extrasDir + "/ligatures.json"));
+var extraLigatures = JSON.parse(fs.readFileSync(extrasDir + "/ligatures.json", "utf8"));
 
 var components = {};
 // maps svg-data -> glyphName
@@ -129,9 +130,9 @@ function applyOpacity(c, o) {
     if (c == undefined || c == 'none') {
         return c;
     }
-    var opacity = o * parseInt(c.substr(7), 16) / 255;
-    opacity = Math.round(opacity * 255);
-    opacity = opacity.toString(16);
+    var op = o * parseInt(c.substr(7), 16) / 255;
+    op = Math.round(op * 255);
+    let opacity = op.toString(16);
     if (opacity.length == 1) {
         opacity = '0' + opacity;
     }
@@ -164,12 +165,12 @@ function decodePath(d) {
         var coords;
         var c = '\\s*(-?(?:[0-9]*\\.[0-9]+|[0-9]+)),?';
         if (op == 'M') {
-            segStart = undefined;
+            segStart = [];
             while (coords = d.match('^' + c + c)) {
                 d = d.substr(coords[0].length);
                 x = Number(coords[1]);
                 y = Number(coords[2]);
-                if (segStart == undefined) {
+                if (segStart.length == 0) {
                     segStart = [x, y];
                 }
                 result.push([x, y]);
@@ -182,12 +183,12 @@ function decodePath(d) {
                 result.push([x, y]);
             }
         } else if (op == 'm') {
-            segStart = undefined;
+            segStart = [];
             while (coords = d.match('^' + c + c)) {
                 d = d.substr(coords[0].length);
                 x += Number(coords[1]);
                 y += Number(coords[2]);
-                if (segStart == undefined) {
+                if (segStart.length == 0) {
                     segStart = [x, y];
                 }
                 result.push([x, y]);
@@ -320,7 +321,7 @@ function decodePath(d) {
 function getBBox(p) {
     if (p['#name'] == 'path') {
         var points = decodePath(p['$']['d']);
-        var result = [undefined, undefined, undefined, undefined];
+        var result = [];
         points.forEach(function(pt) {
             if (result[0] == undefined || pt[0] < result[0]) { result[0] = pt[0]; }
             if (result[1] == undefined || pt[1] < result[1]) { result[1] = pt[1]; }
@@ -384,10 +385,10 @@ function addOrMerge(paths, p, color) {
     }
 }
 
-function recordGradient(g, urlColor) {
+function recordGradient(gr, urlColor) {
     var stops = [];
-    var id = '#' + g['$']['id'];
-    g['$$'].forEach(function (child) {
+    var id = '#' + gr['$']['id'];
+    gr['$$'].forEach(function (child) {
         if (child['#name'] == "stop") {
             stops.push(expandColor(child['$']['stop-color']));
         }
@@ -471,7 +472,7 @@ function processFile(fileName, data) {
                             if (def['#name'] == 'linearGradient') {
                                 recordGradient(def, urlColor);
                             } else {
-                                var id = '#' + def['$']['id'];
+                                const id = '#' + def['$']['id'];
                                 defs[id] = def;
                             }
                         })
@@ -495,7 +496,7 @@ function processFile(fileName, data) {
 
                 // any path with an 'id' might get re-used, so remember it
                 if (e['$']['id']) {
-                    var id = '#' + e['$']['id'];
+                    const id = '#' + e['$']['id'];
                     defs[id] = JSON.parse(JSON.stringify(e));
                 }
 
@@ -521,7 +522,7 @@ function processFile(fileName, data) {
                 }
 
                 if (fill && fill.substr(0, 3) == "url") {
-                    var id = fill.substr(4, fill.length - 5);
+                    const id = fill.substr(4, fill.length - 5);
                     if (urlColor[id] == undefined) {
                         console.log('### ' + baseName + ': no mapping for ' + fill);
                     } else {
@@ -529,7 +530,7 @@ function processFile(fileName, data) {
                     }
                 }
                 if (stroke && stroke.substr(0, 3) == "url") {
-                    var id = stroke.substr(4, stroke.length - 5);
+                    const id = stroke.substr(4, stroke.length - 5);
                     if (urlColor[id] == undefined) {
                         console.log('### ' + baseName + ': no mapping for ' + stroke);
                     } else {
@@ -1081,7 +1082,7 @@ fs.rm(targetDir, { recursive: true }, function() {
             var o = overrides.indexOf(fileName);
             if (o >= 0) {
                 console.log("overriding " + fileName + " with local copy");
-                data = fs.readFileSync(overridesDir + "/" + fileName);
+                data = fs.readFileSync(overridesDir + "/" + fileName, "utf8");
                 processFile(fileName, data);
                 overrides.splice(o, 1);
                 e.autodrain();

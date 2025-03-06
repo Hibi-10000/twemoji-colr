@@ -30,6 +30,15 @@ importers:
         specifier: ^15.1.1
         version: 15.1.1
     devDependencies:
+      '@types/node':
+        specifier: ^22.13.9
+        version: 22.13.9
+      '@types/unzip':
+        specifier: ^0.1.4
+        version: 0.1.4
+      '@types/xml2js':
+        specifier: ^0.4.14
+        version: 0.4.14
       emojibase-data:
         specifier: ^16.0.2
         version: 16.0.2(emojibase@16.0.0)
@@ -38,6 +47,15 @@ importers:
         version: 5.0.0
 
 packages:
+
+  '@types/node@22.13.9':
+    resolution: {integrity: sha512-acBjXdRJ3A6Pb3tqnw9HZmyR3Fiol3aGxRCK1x3d+6CDAMjl7I649wpSd+yNURCjbOUGu9tqtLKnTGxmK6CyGw==}
+
+  '@types/unzip@0.1.4':
+    resolution: {integrity: sha512-1ROTKkzfM1rXZq9coVyY/piMbCzIfgX4PyxHBxB76jOf+lTMoEFj7XUChQNb/u3+xmSZ/xY/OXV+3onc5yLwew==}
+
+  '@types/xml2js@0.4.14':
+    resolution: {integrity: sha512-4YnrRemBShWRO2QjvUin8ESA41rH+9nQGLUGZV/1IDhi3SL9OhdpNC/MrulTWuptXKwhx/aDxE7toV0f/ypIXQ==}
 
   abbrev@1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
@@ -913,6 +931,9 @@ packages:
   underscore@1.7.0:
     resolution: {integrity: sha512-cp0oQQyZhUM1kpJDLdGO1jPZHgS/MpzoWYfe9+CM2h/QGDZlqwT2T3YGukuBdaNJ/CAPoeyAZRRHz8JFo176vA==}
 
+  undici-types@6.20.0:
+    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
+
   unzip@0.1.11:
     resolution: {integrity: sha512-Dvxd7bj2RcfbM+AbNfx0Ufqvk7Kl4YGeAQlEGn9+glDQz1HFxeeRjBStxi/DfIvgutn6hbC4yMc1rEo3x+dmVQ==}
 
@@ -983,6 +1004,18 @@ ignoredOptionalDependencies:
   - canvas
 
 snapshots:
+
+  '@types/node@22.13.9':
+    dependencies:
+      undici-types: 6.20.0
+
+  '@types/unzip@0.1.4':
+    dependencies:
+      '@types/node': 22.13.9
+
+  '@types/xml2js@0.4.14':
+    dependencies:
+      '@types/node': 22.13.9
 
   abbrev@1.1.1: {}
 
@@ -1897,6 +1930,8 @@ snapshots:
       util-deprecate: 1.0.2
 
   underscore@1.7.0: {}
+
+  undici-types@6.20.0: {}
 
   unzip@0.1.11:
     dependencies:
