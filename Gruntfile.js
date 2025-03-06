@@ -1,7 +1,9 @@
+const gruntwebfont = require("grunt-webfont");
+
 module.exports = function(grunt) {
 	'use strict';
 
-    var packageJSON = grunt.file.readJSON('package.json');
+    const packageJSON = grunt.file.readJSON('package.json');
 
 	grunt.initConfig({
 		webfont: {
@@ -20,7 +22,5 @@ module.exports = function(grunt) {
 		},
 	});
 
-	grunt.loadNpmTasks('grunt-webfont');
-
-	grunt.registerTask('default', ['webfont']);
+    gruntwebfont(grunt);
 };
