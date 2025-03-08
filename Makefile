@@ -17,7 +17,7 @@ EXTRA_DIR    = extras
 GRUNTFILE  = Gruntfile.cjs
 LAYERIZE   = layerize.js
 
-CODEPOINTS = $(BUILD_DIR)/codepoints.js
+CODEPOINTS = $(BUILD_DIR)/codepoints.json
 OT_SOURCE  = $(BUILD_DIR)/$(FONT_NAME).ttx
 RAW_FONT   = $(BUILD_DIR)/raw-font/$(FONT_NAME).ttf
 
